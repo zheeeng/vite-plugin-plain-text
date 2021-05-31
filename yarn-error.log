@@ -1,0 +1,42 @@
+Arguments: 
+  /Users/zheeeng/.nvm/versions/node/v12.20.1/bin/node /Users/zheeeng/.nvm/versions/node/v12.20.1/bin/yarn init
+
+PATH: 
+  /Users/zheeeng/.cabal/bin:/Users/zheeeng/.ghcup/bin:/Users/zheeeng/.nvm/versions/node/v12.20.1/bin:/Users/zheeeng/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.20.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/zheeeng/.nvm/versions/node/v12.20.1/lib/node_modules/yarn/lib/cli.js:136216:13)
+      at Interface.emit (events.js:314:20)
+      at Interface._ttyWrite (readline.js:868:16)
+      at ReadStream.onkeypress (readline.js:205:10)
+      at ReadStream.emit (events.js:314:20)
+      at emitKeys (internal/readline/utils.js:335:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1137:36)
+      at ReadStream.emit (events.js:314:20)
+      at addChunk (_stream_readable.js:297:12)
+
+npm manifest: 
+  {
+    "name": "vite-plugin-plain-text",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "zheeeng <hi@zheeeng.me>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

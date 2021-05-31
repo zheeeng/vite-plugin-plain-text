@@ -1,0 +1,14 @@
+{
+  "name": "vite-plugin-plain-text",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Zheeeng <hi@zheeeng.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^2.3.4"
+  },
+  "scripts": {
+    "prepublishonly": "npm run build",
+    "build": "tsc -p tsconfig.json"
+  }
+}
