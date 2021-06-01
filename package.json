@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-plain-text",
   "author": "Zheeeng <hi@zheeeng.me>",
-  "description": "A Vite plugin transforms the rule matched file as plain text.",
+  "description": "A Vite plugin transforms the rule-matched file as plain text.",
   "keywords": [
     "vite",
     "plugin",

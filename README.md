@@ -5,7 +5,7 @@
 ![publish workflow](https://github.com/zheeeng/vite-plugin-plain-text/actions/workflows/publish.yml/badge.svg)
 [![npm version](https://img.shields.io/npm/v/vite-plugin-plain-text.svg)](https://www.npmjs.com/package/vite-plugin-plain-text)
 
-A Vite plugin transforms the rule matched file as plain text.
+A Vite plugin transforms the rule-matched file as plain text.
 
 ## Install
 
