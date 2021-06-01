@@ -1,20 +1,26 @@
 {
   "name": "vite-plugin-plain-text",
-  "version": "1.1.2",
-  "main": "index.js",
   "author": "Zheeeng <hi@zheeeng.me>",
+  "description": "A Vite plugin transforms the rule matched file as plain text.",
+  "keywords": [
+    "vite",
+    "plugin",
+    "vite-plugin",
+    "plain text"
+  ],
+  "repository": "https://github.com/zheeeng/vite-plugin-plain-text",
+  "version": "1.1.3",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc -p tsconfig.json"
-  },
-  "devDependencies": {
-    "vite": "^2.3.4"
   },
   "files": [
     "*.js",
     "*.d.ts"
   ],
-  "repository": "https://github.com/zheeeng/vite-plugin-plain-text",
-  "keywords": ["vite", "plugin", "plain text"]
+  "devDependencies": {
+    "vite": "^2.3.4"
+  }
 }
