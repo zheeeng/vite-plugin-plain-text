@@ -1,14 +1,18 @@
 {
   "name": "vite-plugin-plain-text",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Zheeeng <hi@zheeeng.me>",
   "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc -p tsconfig.json"
+  },
   "devDependencies": {
     "vite": "^2.3.4"
   },
-  "scripts": {
-    "prepublishonly": "npm run build",
-    "build": "tsc -p tsconfig.json"
-  }
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ]
 }

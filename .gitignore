@@ -4,3 +4,4 @@ node_modules
 *.tgz
 *.js
 *.d.ts
+yarn-error.log
