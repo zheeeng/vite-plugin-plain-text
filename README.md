@@ -15,14 +15,17 @@ yarn add -D vite-plugin-plain-text (or by npm)
 
 ## Usage
 
+Take the project's legal file `LICENSE` as an example:
+
 ```ts
-// vite.config.ts
+// vite.config.(t|j)s
 
 import { defineConfig } from 'vite';
 
 /**
- * @param match Regular expression in string or Regexp type,
- * or a match predicate  (this: vite transform context, code: string, id: file name string) => void
+ * @param match
+ * Regular expression in string or Regexp type,
+ *  or a match predicate  (this: vite transform context, code: string, id: file name string) => void
  * @returns transformed code
  */
 import plainText from 'vite-plugin-plain-text';
@@ -35,14 +38,26 @@ export default defineConfig({
 });
 ```
 
-```ts
-// component.ts
+```js
+// component.js
 
 import { plainText as LICENSE } from '@root/LICENSE'
 
 console.log(LICENSE)
 ```
 
+For Typescript user you could add module declaration, e.g.:
+
+```ts
+declare module '*/LICENSE' {
+    export const plainText: string
+}
+```
+
 ## License
 
 MIT
+
+## Alternative
+
+Virtual asset Loader: [vite-plugin-virtual-plain-text](https://www.npmjs.com/package/vite-plugin-virtual-plain-text)

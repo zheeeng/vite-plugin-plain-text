@@ -5,8 +5,9 @@ type ThisParameter<T extends undefined | ((...args: any) => any)> = T extends (t
 type TransformContext = ThisParameter<Plugin['transform']>
 
 /**
- * @param match Regular expression in string or Regexp type,
- * or a match predicate  (this: vite transform context, code: string, id: file name string) => void
+ * @param match
+ * Regular expression in string or Regexp type,
+ *  or a match predicate  (this: vite transform context, code: string, id: file name string) => void
  * @returns transformed code
  */
 export default function plainText (match: string | RegExp | ((this: TransformContext, code: string, id: string) => boolean)): Plugin {
