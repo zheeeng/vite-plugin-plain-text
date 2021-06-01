@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-plain-text",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "author": "Zheeeng <hi@zheeeng.me>",
   "license": "MIT",
@@ -16,5 +16,5 @@
     "*.d.ts"
   ],
   "repository": "https://github.com/zheeeng/vite-plugin-plain-text",
-  "keywords": ["vite", "plugin"]
+  "keywords": ["vite", "plugin", "plain text"]
 }
