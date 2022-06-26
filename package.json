@@ -22,5 +22,8 @@
   ],
   "devDependencies": {
     "vite": "^2.3.4"
+  },
+  "dependencies": {
+    "@napi-rs/magic-string": "^0.3.4"
   }
 }

@@ -10,7 +10,7 @@ A Vite plugin transforms the rule-matched file as plain text.
 ## Install
 
 ```bash
-yarn add -D vite-plugin-plain-text (or by npm)
+yarn add -D vite-plugin-plain-text (or by npm/pnpm)
 ```
 
 ## Usage
@@ -23,10 +23,10 @@ Take the project's legal file `LICENSE` as an example:
 import { defineConfig } from 'vite';
 
 /**
- * @param match
- * Regular expression in string or Regexp type,
- *  or a match predicate  (this: vite transform context, code: string, id: file name string) => void
- * @returns transformed code
+ * @param {string | RegExp | Function} match
+ *  String or RegExp to match the module id(file name),
+ *  it also can be a matching-predicator with the signature `(this: vite transform context, code: string, id: file name string) => void`
+ * @return transformed code
  */
 import plainText from 'vite-plugin-plain-text';
 
@@ -38,17 +38,18 @@ export default defineConfig({
 });
 ```
 
-```js
+```js component.js
 // component.js
 
-import { plainText as LICENSE } from '@root/LICENSE'
+import { plainText as LICENSE } from '../LICENSE'
 
 console.log(LICENSE)
 ```
 
-For Typescript user you could add module declaration, e.g.:
+For Typescript user you could add the module declaration, e.g.:
 
 ```ts
+// vite-env.d.ts
 declare module '*/LICENSE' {
     export const plainText: string
 }
