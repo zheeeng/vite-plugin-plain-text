@@ -18,12 +18,15 @@ export default function plainText (match: string | RegExp | ((this: TransformCon
         || match instanceof RegExp && match.test(id)
         || typeof match === 'function' && match.call(this, code, id)
       ) {
-        const content = `export const plainText = ${JSON.stringify(code)}`
-        const magicString = new MagicString(content)
+
+        const magicString = new MagicString(code)
+        magicString.overwrite(0, code.length, `export const plainText = ${JSON.stringify(code)}`)
+
+        const sourcemap = this.getCombinedSourcemap()
 
         return {
-          code: content,
-          map: magicString.generateMap({ hires: true }).toString(),
+          code: magicString.toString(),
+          map: magicString.generateMap({ file: sourcemap.file, source: sourcemap.sources[0], includeContent: true }).toMap(),
         }
       }
     },
