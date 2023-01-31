@@ -9,7 +9,7 @@
     "plain text"
   ],
   "repository": "https://github.com/zheeeng/vite-plugin-plain-text",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
