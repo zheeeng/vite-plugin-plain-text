@@ -21,6 +21,7 @@
     "*.d.ts"
   ],
   "devDependencies": {
+    "typescript": "^4.9.5",
     "vite": "^2.3.4"
   },
   "dependencies": {
