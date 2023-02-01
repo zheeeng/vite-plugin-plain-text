@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@napi-rs/magic-string": "^0.3.4",
+    "fast-glob": "^3.2.12",
     "minimatch": "^6.1.6"
   }
 }
