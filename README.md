@@ -5,19 +5,23 @@
 ![publish workflow](https://github.com/zheeeng/vite-plugin-plain-text/actions/workflows/publish.yml/badge.svg)
 [![npm version](https://img.shields.io/npm/v/vite-plugin-plain-text.svg)](https://www.npmjs.com/package/vite-plugin-plain-text)
 
-A Vite plugin transforms the rule-matched file as plain text.
+A Vite plugin that transforms matched files into plain text.
 
-## Install
+## Installation
 
 ```bash
-yarn add -D vite-plugin-plain-text (or by npm/pnpm)
+pnpm i -D vite-plugin-plain-text (or npm/yarn)
 ```
 
-## Example Usage
+## Usage Example
 
-1. Support import the project's legal file `LICENSE`
-2. Support import textbox
-3. Support import glsl
+Assume we are going to transform these files:
+
+1. The project's `LICENSE` file
+2. Textbox
+3. `.glsl` file
+
+into plain text.
 
 ```ts
 // vite.config.(t|j)s
@@ -28,7 +32,7 @@ import plainText from 'vite-plugin-plain-text';
 
 export default defineConfig({
   plugins: [
-    // passing Regular expression or glob matcher
+    // passing regular expression or glob matcher
     plainText([/\/LICENSE$/, '**/*.text', /\.glsl$/]),
   ],
 });
@@ -48,15 +52,25 @@ console.log(Siren)
 
 ## Advanced Usage
 
+### Options Reference
+
+```ts
+type PlainTextOptions = {
+  namedExport?: string | false,
+  dtsAutoGen?: boolean,
+  distAutoClean?: boolean,
+}
+```
+
 ### Enable Default Export
 
-The optional `plainTextOptions.namedExport` configures the named exported variable, pass a string that specifies the variable's name, and pass false/''/undefined enabling the default exporting.
+Use the `plainTextOptions.namedExport` option to configure the named exported variable. To enable the default export, pass `false`, `''`, or `undefined`.
 
 ```ts
 // vite.config.(t|j)s
 
-import { defineConfig } from "vite";
-import plainText from "../src/index";
+import { defineConfig } from 'vite';
+import plainText from 'vite-plugin-plain-text';
 
 export default defineConfig({
   plugins: [
@@ -80,37 +94,41 @@ console.log(Lorem)
 console.log(Siren)
 ```
 
-### Type Safe
+### Type Safety
 
-1. Manually add the module declaration:
-    ```ts
-    // vite-env.d.ts
-    declare module '*/LICENSE' {
-        export const plainText: string
-    }
-    declare module '*.text' {
-        export const plainText: string
-    }
-    declare module '*.glsl' {
-        export const plainText: string
-    }
-    ```
-2. Try type declaration generating automatically:
-     1. `plainTextOptions.dtsAutoGen` generates dts files for the matched files.
-     2. `plainTextOptions.dtsAutoClean` cleans up these dts files after the vite plugin startup each time.
-    ```ts
-    import { defineConfig } from "vite";
-    import plainText from "../src/index";
+#### Adding Module Declarations Manually
 
-    export default defineConfig({
-      plugins: [
-        plainText(
-          [/\/LICENSE$/, '**/*.text', /\.glsl$/],
-          { namedExport: false, dtsAutoGen: true, distAutoClean: true },
-        ),
-      ],
-    });
-    ```
+```ts
+// vite-env.d.ts
+declare module '*/LICENSE' {
+    export const plainText: string
+}
+declare module '*.text' {
+    export const plainText: string
+}
+declare module '*.glsl' {
+    export const plainText: string
+}
+```
+
+#### Generate the declaration automatically
+
+1. `plainTextOptions.dtsAutoGen` generates `.dts` files for matched files.
+2. `plainTextOptions.dtsAutoClean` cleans up these `.dts` files after the vite plugin starts up each time.
+
+```ts
+import { defineConfig } from 'vite';
+import plainText from 'vite-plugin-plain-text';
+
+export default defineConfig({
+  plugins: [
+    plainText(
+      [/\/LICENSE$/, '**/*.text', /\.glsl$/],
+      { namedExport: false, dtsAutoGen: true, distAutoClean: true },
+    ),
+  ],
+});
+```
 
 ## License
 
