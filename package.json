@@ -20,6 +20,7 @@
     "require": "./dist/index.js"
   },
   "scripts": {
+    "dev": "vite playground",
     "prepublishOnly": "npm run build",
     "build": "tsup"
   },
@@ -27,11 +28,13 @@
     "dist"
   ],
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "tsup": "^6.5.0",
     "typescript": "^4.9.5",
     "vite": "^2.3.4"
   },
   "dependencies": {
-    "@napi-rs/magic-string": "^0.3.4"
+    "@napi-rs/magic-string": "^0.3.4",
+    "minimatch": "^6.1.6"
   }
 }

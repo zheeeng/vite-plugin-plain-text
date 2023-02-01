@@ -23,17 +23,20 @@ Take the project's legal file `LICENSE` as an example:
 import { defineConfig } from 'vite';
 
 /**
- * @param {string | RegExp | Function} match
- *  String or RegExp to match the module id(file name),
- *  it also can be a matching-predicator with the signature `(this: vite transform context, code: string, id: file name string) => void`
- * @return transformed code
+ * @param {string | RegExp | (string | RegExp)[] | Function} match
+ *  You can use the string, RegExp, string array, RegExp array to match the module id(file name).
+ *  You can also pass a matching-predicator with the signature `(this: vite transform context, code: string, id: file name string) => void` tUI_Po decide whether to treat its content as plain text.
+ * @param { namedExport?: string } plainTextOptions, @default { namedExport: 'plainText' }
+ *  By default the plain text are named exported as `plainText`.
+ *  You can pass undefined to specify to using the default exporting.
+ * @return Configured plugin
  */
 import plainText from 'vite-plugin-plain-text';
 
 export default defineConfig({
   plugins: [
-    // passing string type Regular expression
-    plainText(/\/LICENSE$/),
+    // passing Regular expression or glob matcher
+    plainText([/\/LICENSE$/, '*.text']),
   ],
 });
 ```
@@ -51,6 +54,9 @@ For Typescript user you could add the module declaration, e.g.:
 ```ts
 // vite-env.d.ts
 declare module '*/LICENSE' {
+    export const plainText: string
+}
+declare module '*.text' {
     export const plainText: string
 }
 ```
